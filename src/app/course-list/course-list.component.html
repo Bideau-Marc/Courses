@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <div class="container">
+        <h2>Liste de Courses</h2>
+        <table class="article-table">
+            <tr *ngFor="let article of articles">
+                <td>{{ article }}</td>
+                <td><button (click)="removeArticle(article)">Supprimer</button></td>
+            </tr>
+        </table>
+
+        <br />
+        <div class="input-section">
+            <input [(ngModel)]="newArticle" placeholder="Ajouter un article" />
+            <button (click)="addArticle()">Ajouter</button>
+        </div>
+
+        <br /><br />
+        <div class="number-input">
+            <label for="number">Nombre d'articles à générer :</label>
+            <input type="number" [(ngModel)]="numberOfArticles" min="1" [max]="articles.length" />
+        </div>
+
+        <button (click)="generateRandomList()">Générer Liste Aléatoire</button>
+
+        <h3>Liste Générée</h3>
+        <ul>
+            <li *ngFor="let article of generatedArticles">{{ article }}</li>
+        </ul>
+    </div>
+</div>
